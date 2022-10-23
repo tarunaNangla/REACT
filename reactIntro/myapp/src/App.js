@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+var obj="taruna"
+var obj2=[{
+  name:"Tinna",
+  roll:9
+},
+{
+  name:"Rajat",
+  roll:1
+},
+{
+  name:"Rahul",
+  roll:2
+}]
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+     <p>{obj}</p>
+     <div>{obj2.map((ele)=>{
+      return(
+        <div>
+          <h1>Name : {ele.name}</h1>
+          <h2>Roll No : {ele.roll}</h2>
+        </div>
+      )
+     })}</div>
     </div>
   );
 }
