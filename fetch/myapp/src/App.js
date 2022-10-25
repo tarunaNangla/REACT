@@ -14,7 +14,7 @@ function App() {
     .then((res)=>res.json())
     .then((res)=>setUser(res))
     .catch((error)=>{console.log(error)})
-  })
+  },[]) //calls only once
 
   return (
     <div className="App">
