@@ -6,11 +6,13 @@ function App() {
 
   const [count,setCount]=useState(10);
 
-  useEffect(()=>{
+  const stop=useEffect(()=>{
     setInterval(()=>{
         setCount((prev)=>{
+          console.log(prev)
            if(prev<=0)
            {
+            clearInterval(stop)
             return 0
            }
            return prev-1
