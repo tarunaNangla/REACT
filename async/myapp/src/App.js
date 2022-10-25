@@ -5,13 +5,14 @@ import './App.css';
 function App() {
   const [user,setUser]=useState([])
   const [text,setText]=useState("")
+  const [page,setPage]=useState(1)
 
   useEffect(()=>{
     getdata();
-  },[])
+  },[page])
   const getdata= ()=>
    {
-       fetch("http://localhost:8080/data")
+       fetch(`http://localhost:8080/data?_page=${page}&_limit=3`)
        .then((res)=>res.json())
        .then((res)=>setUser(res))
        .catch((err)=>{console.log(err)})
@@ -44,6 +45,8 @@ function App() {
       {ele.name}
       </p>)
      })}
+     <button onClick={()=>setPage(page-1)}>pre</button>
+     <button onClick={()=>setPage(page+1)} >next</button>
     </div>
   );
 }
